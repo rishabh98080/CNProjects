@@ -1,0 +1,147 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(135deg, #67B26F, #4ca2cd);
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+#header {
+    width: 100%;
+    padding: 15px 40px;
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    justify-content: space-between;
+}
+
+.logo-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#logo {
+    border-radius: 50%;
+}
+
+.brand {
+    font-size: 22px;
+}
+
+#nav-bar {
+    display: flex;
+    gap: 25px;
+}
+
+#nav-bar a {
+    color: black;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+}
+
+#card {
+    width: 420px;
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    min-height: 350px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.input-area {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#taskInput {
+    flex: 1;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #bbbbbb;
+    font-size: 15px;
+}
+
+#addBtn {
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: none;
+    background: #4ca2cd;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.2s ease;
+}
+
+#addBtn:hover {
+    background: #3b89b2;
+}
+
+#taskList {
+    list-style: none;
+    margin-top: 10px;
+}
+
+li {
+    background: #f5f5f5;
+    padding: 12px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    font-size: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.2s ease;
+}
+
+li:hover {
+    background: #ebebeb;
+}
+
+.completed {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.deleteBtn {
+    background: red;
+    color: white;
+    padding: 4px 8px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.about-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 100px);
+    text-align: center;
+    padding: 20px;
+}
+
+.about-text {
+    font-size: 20px;
+    color: white;
+    max-width: 700px;
+    line-height: 1.6;
+}
