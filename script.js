@@ -39,8 +39,9 @@ function fetchData(){
 }
 function addTask() {
     const now = new Date();
-    const taskName = taskInput.value.trim() +" " +" "+ " [" + now.toLocaleDateString() + " " + now.toLocaleTimeString()+"]";
+    let taskName = taskInput.value.trim();
     if (taskName === "") return;
+    taskName += " " +" "+ " [" + now.toLocaleDateString() + " " + now.toLocaleTimeString()+"]";
 
     const li = document.createElement("li");
     li.textContent = taskName;
@@ -79,8 +80,10 @@ function listPopulator(){
         const key = localStorage.key(i);
 
         if(key.slice(0,4) == "task"){
-            const taskName = localStorage.getItem(key);
+            const now = new Date();
+            let taskName = taskInput.value.trim();
             if (taskName === "") return;
+            taskName += " " +" "+ " [" + now.toLocaleDateString() + " " + now.toLocaleTimeString()+"]";
 
             const li = document.createElement("li");
             li.textContent = taskName;
