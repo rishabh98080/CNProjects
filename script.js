@@ -3,33 +3,34 @@ const addBtn = document.getElementById("addBtn");
 const taskInput = document.getElementById("taskInput");
 const taskList = document.getElementById("taskList");
 
-if(localStorage.getItem('lastTaskCount') == undefined){
-    const lastTask = localStorage.setItem("lastTaskCount","task0");
+if (localStorage.getItem('lastTaskCount') == undefined) {
+    const lastTask = localStorage.setItem("lastTaskCount", "task0");
 
 }
-function taskcreator(){
-    let number  = Number(localStorage.getItem('lastTaskCount').slice(4));
+function taskcreator() {
+    let number = Number(localStorage.getItem('lastTaskCount').slice(4));
     let newTaskName = "task" + Number(number + 1);
-    localStorage.setItem('lastTaskCount',newTaskName);
+    localStorage.setItem('lastTaskCount', newTaskName);
     return String(newTaskName);
 }
 
 
-function writeData(newTaskName){
+function writeData(newTaskName) {
     const localobjects = fetchData();
     const kvalue = taskcreator();
     localobjects[kvalue] = newTaskName;
-    for(let k in localobjects){
-        localStorage.setItem(k,localobjects[k]);
+    for (let k in localobjects) {
+        localStorage.setItem(k, localobjects[k]);
     }
-    return [localobjects,kvalue];
+    console.log("I am here!!!");
+    return [localobjects, kvalue];
 }
-function fetchData(){
-    const localobjects = () =>{
+function fetchData() {
+    const localobjects = () => {
         const newObject = {};
-        for(let i = 0 ; i < localStorage.length;i++){
+        for (let i = 0; i < localStorage.length; i++) {
             const k = localStorage.key(i);
-            if(k.substring(0,4) == "task"){
+            if (k.substring(0, 4) == "task") {
                 newObject.k = localStorage.getItem(k);
             }
         }
@@ -40,8 +41,8 @@ function fetchData(){
 function addTask() {
     const now = new Date();
     let taskName = taskInput.value.trim();
-    if (taskName === "" ) return;
-    taskName += " " +" "+ " [" + now.toLocaleDateString() + " " + now.toLocaleTimeString()+"]";
+    if (taskName === "" || taskName == null) return;
+    taskName += " " + " " + " [" + now.toLocaleDateString() + " " + now.toLocaleTimeString() + "]";
     const li = document.createElement("li");
     li.textContent = taskName;
 
@@ -73,15 +74,16 @@ taskInput.addEventListener("keypress", (e) => {
     if (e.key === "Enter") addTask();
 });
 
-function listPopulator(){
-    
-    for(let i = 0 ; i < localStorage.length; i++){
-        const key = localStorage.key(i);
+function listPopulator() {
 
-        if(key.slice(0,4) == "task"){
-            let taskName = key; // found the error here i.e [let taskName = taskInput.value.trim();]
-            if (taskName === "" ) return;
-            taskName += " " +" "+ " [" + now.toLocaleDateString() + " " + now.toLocaleTimeString()+"]";
+    console.log("listPopulator has been called.." + localStorage.length)
+    for (let i = 0; i < localStorage.length; i++) {
+        const k = localStorage.key(i);
+        if (k.slice(0,4) == "task") {
+            const taskName = localStorage.getItem(k);
+
+            if (taskName === "") return;
+            //taskName += " " + " " + " [" + now.toLocaleDateString() + " " + now.toLocaleTimeString() + "]";
 
             const li = document.createElement("li");
             li.textContent = taskName;
@@ -89,7 +91,7 @@ function listPopulator(){
             li.addEventListener("click", () => {
                 li.classList.toggle("completed");
             });
-            li.id = key;
+            li.id = k;
             const del = document.createElement("span");
             del.textContent = "Delete";
             del.className = "deleteBtn";
@@ -97,7 +99,7 @@ function listPopulator(){
             del.addEventListener("click", (e) => {
                 e.stopPropagation();
                 li.remove();
-                localStorage.removeItem(key);
+                localStorage.removeItem(k);
                 console.log(localStorage);
             });
             li.appendChild(del);
@@ -105,9 +107,10 @@ function listPopulator(){
             taskInput.value = "";
         }
 
-        
+
     }
 }
+
 {
     listPopulator();
 }
