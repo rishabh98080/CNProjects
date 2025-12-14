@@ -3,9 +3,24 @@ const addBtn = document.getElementById("addBtn");
 const taskInput = document.getElementById("taskInput");
 const taskList = document.getElementById("taskList");
 
+
 if (localStorage.getItem('lastTaskCount') == undefined) {
     const lastTask = localStorage.setItem("lastTaskCount", "task0");
-
+}
+function update(){   
+    let check = 0;
+    for(let i = 0 ; i < localStorage.length ; i++){
+        const k = localStorage.key(i);
+        if(k.slice(0,4) == "task"){
+            check = Math.max(check,Number(k.slice(4)));
+        }
+    }
+    if(check == 0){
+        localStorage.setItem('lastTaskCount','task0');
+    }
+    else{
+        localStorage.setItem('lastTaskCount',"task" + check);
+    }
 }
 function taskcreator() {
     let number = Number(localStorage.getItem('lastTaskCount').slice(4));
@@ -22,7 +37,6 @@ function writeData(newTaskName) {
     for (let k in localobjects) {
         localStorage.setItem(k, localobjects[k]);
     }
-    console.log("I am here!!!");
     return [localobjects, kvalue];
 }
 function fetchData() {
@@ -61,6 +75,7 @@ function addTask() {
         e.stopPropagation();
         li.remove();
         localStorage.removeItem(li.id);
+        update();
         console.log(localStorage);
     });
 
@@ -100,14 +115,13 @@ function listPopulator() {
                 e.stopPropagation();
                 li.remove();
                 localStorage.removeItem(k);
+                update();
                 console.log(localStorage);
             });
             li.appendChild(del);
             taskList.appendChild(li);
             taskInput.value = "";
         }
-
-
     }
 }
 
