@@ -1,0 +1,50 @@
+{
+  "Monday": {
+    "Breakfast": "Idli (4 pcs), Ghuguni, Coconut & Groundnut Chutney, Tea",
+    "Lunch": "Rice, Roti, Dal, Egg Masala / Sagamuga, Aloo Baigan Bharta, Dahi, Salad",
+    "Snack": "Mix Veg Chowmin, Chilli and Tomato Sauce, Coffee",
+    "Dinner": "Rice, Roti, Dal, Soyabean Aloo Kasa, Cabbage Matar, Fruit Custard"
+  },
+  "Tuesday": {
+    "Breakfast": "Chole Bhature (2 pcs), Coffee",
+    "Lunch": "Rice, Roti, Dal, Chicken Aloo Kasa / Navaratna Korma, Dahi Kadhi, Papad",
+    "Snack": "Dahi Vada (2 nos), Aludum, Onion and Sev, Tea",
+    "Dinner": "Rice, Roti, Dal, Egg Bhurji / Paneer Bhurji, Aloo Beans Bhaja, Sweet Curd"
+  },
+  "Wednesday": {
+    "Breakfast": "Masala Upma, Ghuguni, Coconut & Groundnut Chutney, Tea",
+    "Lunch": "Rice, Roti, Dal, Mustard Fish with Aloo / Mushroom & Green Peas Masala, Aloo Cauliflower Bhaja, Salad",
+    "Snack": "Paneer Patties (1 pc big), Chilli & Tomato Sauce, Coffee",
+    "Dinner": "Hyderabadi Chicken (2 pcs @150gm) Dum Biryani, Raita, 1 pc Boiled Egg / Mix Veg Dum Biryani, Paneer Curry, Raita, Rasagola"
+  },
+  "Thursday": {
+    "Breakfast": "Bada (4 pcs), Aloo Dum, Coconut & Groundnut Chutney, Tea",
+    "Lunch": "Rice, Roti, Dal, Egg Do Piaza / Potal Korma, Cabbage Matar Bhaja, Papad",
+    "Snack": "Pav Bhaji (2 pcs), Tea",
+    "Dinner": "Rice, Roti, Dal, Egg Tadka / Paneer Tadka, Finger Chips, Salad"
+  },
+  "Friday": {
+    "Breakfast": "Bread (4 pcs) Omelette (2 eggs), Tea / Bread (4 pcs), Jam, Banana (big size), Tea",
+    "Lunch": "Rice, Roti, Dal, Fish Kalia (2 pcs) / Cauliflower Aloo Kasa, Tomato Chutney, Papad",
+    "Snack": "Pampdi Chat, Onion, Sev, Dahi, Pudina Chutney, Coffee",
+    "Dinner": "Rice, Roti, Dal, Hyderabadi Chicken / Paneer Butter Masala, Seasonal Bhaja, Malpua"
+  },
+  "Saturday": {
+    "Breakfast": "Uttapam (2 pcs), Sambar, Coconut & Groundnut Chutney, Coffee",
+    "Lunch": "Rice, Roti, Dal, Egg Aloo Curry / Chena Curry, Cabbage Beans Green Peas Bhaja, Salad",
+    "Snack": "Vada Pav (1 pc big), Fried Chilli, Pudina Chutney, Tea",
+    "Dinner": "Rice, Roti, Dal, Chicken Home Style / Mushroom Besar, Chilli Soya, Papad"
+  },
+  "Sunday_Odd": {
+    "Breakfast": "Onion Masala Dosa (1 pc), Coconut & Groundnut Chutney, Tea",
+    "Lunch": "Veg Dum Biryani, Chicken Curry / Paneer Curry, Raita, Papad",
+    "Snack": "Corn Salad (100 gm), Tea",
+    "Dinner": "Rice, Roti, Dal, Non-Veg Ghanta with Prawns (5 pcs) / Mix Veg Ghanta with Paneer, Dahi Bundi, Ice Cream"
+  },
+  "Sunday_Even": {
+    "Breakfast": "Onion Masala Dosa (1 pc), Coconut & Groundnut Chutney, Tea",
+    "Lunch": "Rice, Roti, Dal, Mudhi Ghanta (NVG) / Mix Veg Ghanta with Paneer, Karela Chips, Salad",
+    "Snack": "Aloo Samosa (2 pcs big), Pudina Chutney, Coffee",
+    "Dinner": "Mushroom Pulao, Puri (4 pcs), Dalfry, Dahibada, Chicken Kasa / Paneer Matar Aloo Curry, Papad, Ice Cream"
+  }
+}

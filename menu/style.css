@@ -1,0 +1,43 @@
+*{
+    margin : 0;
+    padding : 0;
+    box-sizing: border-box;
+}
+html, body {
+  height: 100%; /* Ensures they both inherit height correctly */
+}
+body {
+    display: flex;
+    background: linear-gradient(120deg, rgb(153, 225, 153), rgb(127, 127, 206));
+    justify-content: center;
+    align-items: center;
+}
+#menu-box{
+    text-align: center;
+    height: fit-content;
+    width :600px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 10px 10px 50px gray;
+}
+table,td{
+    padding : 15px;
+}
+th{
+    padding :6px;
+    border : 2px solid black;
+    border-radius: 10px;
+}
+
+td{
+    border : 1px solid black;
+    border-radius: 10px;
+}
+td:hover{
+    cursor: pointer;
+    background-color: azure;
+}
+th:hover{
+    cursor: pointer;
+    background-color: rgb(251, 164, 130);
+}
