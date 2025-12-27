@@ -13,8 +13,9 @@ body {
     align-items: center;
 }
 #menu-box{
+    overflow: scroll;
     text-align: center;
-    height: fit-content;
+    height: 400px;
     width :600px;
     background-color: white;
     border-radius: 10px;
