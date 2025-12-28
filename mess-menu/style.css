@@ -7,51 +7,53 @@
 
 /* Page background */
 body {
-    /* Changed to 100dvh (dynamic viewport height) to handle Android 
-       URL bars appearing/disappearing without UI jumps */
     min-height: 100vh;
     min-height: 100dvh; 
     background: linear-gradient(120deg, rgb(153, 225, 153), rgb(127, 127, 206));
     display: flex;
     justify-content: center;
     align-items: center;
-    /* Prevents horizontal scroll on the body itself */
     overflow-x: hidden; 
 }
 
-/* Main container */
+/* Main container - Now a Flex Column */
 #menu-box {
-    /* Use a flexible height logic */
     height: 420px;
-    /* Ensure it doesn't overflow the screen height on small landscape phones */
     max-height: 90dvh; 
-    width: min(95%, 720px); /* Increased to 95% for better use of narrow screens */
+    width: min(95%, 720px); 
     background-color: #ffffff;
     border-radius: 14px;
     box-shadow: 0 10px 45px rgba(0, 0, 0, 0.25);
     
-    /* Crucial for Mobile: smooth scrolling for touch devices */
-    overflow-y: auto;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch; 
+    /* Layout change to fix scrolling */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Prevents scroll on the outer box */
 }
 
-/* Sticky header */
+/* Header - Locked in place */
 .menu-header {
-    position: sticky;
-    top: 0;
     background-color: white;
     padding: 16px;
     border-bottom: 2px solid #e0e0e0;
-    z-index: 20; /* Increased Z-index to ensure it stays above table headers */
+    z-index: 20;
+    text-align: center;
+    flex-shrink: 0; /* Prevents header from shrinking */
 }
 
 .menu-header h1 {
-    text-align: center;
     font-size: 1.7rem;
     letter-spacing: 1px;
-    /* Prevent header text from getting too huge on small screens */
     line-height: 1.2; 
+    margin: 0;
+}
+
+/* NEW: The container that actually scrolls */
+.table-wrapper {
+    flex-grow: 1; /* Takes up remaining space */
+    overflow: auto; /* Enables scroll here */
+    -webkit-overflow-scrolling: touch; /* Smooth scroll on iOS */
+    padding-bottom: 10px;
 }
 
 table {
@@ -59,20 +61,19 @@ table {
     border-collapse: separate;
     border-spacing: 12px;
     padding: 10px;
-    /* Ensures the table can be scrolled horizontally if it gets too wide */
     min-width: 100%; 
 }
 
+/* Table Headers - Sticky inside the wrapper */
 th {
-    /* Adjusted sticky positioning */
     position: sticky;
-    top: 70px; 
+    top: 0; /* Stick to top of wrapper */
     z-index: 10;
-    box-shadow: 0 0 0 6px #ffffff; /* Hack to cover gaps */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Subtle shadow */
     background-color: #f4f4f4;
     padding: 10px;
     font-size: 0.9rem;
-    white-space: nowrap; /* Prevents headers from squashing awkwardly */
+    white-space: nowrap; 
 }
 
 td {
@@ -81,11 +82,10 @@ td {
     border: 1px solid #cfcfcf;
     text-align: center;
     transition: 0.2s ease;
-    /* Better touch targets for Android fingers */
     min-height: 44px; 
 }
 
-/* Hover effects (Only enable on devices that have a mouse to prevent sticky hover states on touch) */
+/* Hover effects */
 @media (hover: hover) {
     td:hover {
         background-color: #e9f9ff;
@@ -98,7 +98,6 @@ td {
     }
 }
 
-/* Active state for touch devices (Simulates hover on tap) */
 td:active {
     background-color: #e9f9ff;
     transform: scale(0.98);
@@ -108,18 +107,18 @@ td:active {
     visibility: hidden;
 }
 
-/* Custom Scrollbar for visual flair */
-#menu-box::-webkit-scrollbar {
-    width: 6px; /* Thinner for mobile */
-    height: 6px; /* Horizontal scrollbar height */
+/* Custom Scrollbar targeting the wrapper now */
+.table-wrapper::-webkit-scrollbar {
+    width: 6px; 
+    height: 6px; 
 }
 
-#menu-box::-webkit-scrollbar-thumb {
+.table-wrapper::-webkit-scrollbar-thumb {
     background: #bbb;
     border-radius: 10px;
 }
 
-#menu-box::-webkit-scrollbar-track {
+.table-wrapper::-webkit-scrollbar-track {
     background: transparent;
 }
 
@@ -128,24 +127,19 @@ td:active {
 /* Tablets and Large Phones */
 @media (max-width: 768px) {
     body {
-        padding: 0; /* Remove padding to maximize space */
-        align-items: center; /* Keep centered vertically */
+        padding: 0; 
+        align-items: center; 
     }
-
+    
     #menu-box {
         width: 100%;
-        height: 100dvh; /* Full height on mobile looks more "app-like" */
+        height: 100dvh; 
         max-height: 100dvh;
-        border-radius: 0; /* Remove radius for full-screen feel */
+        border-radius: 0; 
     }
 
     .menu-header h1 {
         font-size: 1.4rem;
-    }
-
-    /* Adjust sticky top because header might be smaller */
-    th {
-        top: 60px; 
     }
 }
 
@@ -162,7 +156,6 @@ td:active {
     th {
         font-size: 0.8rem;
         padding: 8px;
-        top: 55px; /* Adjusted for smaller header */
     }
 
     td {
@@ -175,7 +168,7 @@ td:active {
     }
 }
 
-/* Very Narrow Androids (e.g., Galaxy Fold outer screen, older devices) */
+/* Very Narrow Androids */
 @media (max-width: 350px) {
     .menu-header h1 {
         font-size: 1.1rem;
@@ -186,7 +179,7 @@ td:active {
     }
 }
 
-/* Landscape Mode (Short height) */
+/* Landscape Mode */
 @media (max-height: 500px) and (orientation: landscape) {
     #menu-box {
         height: 100dvh;
@@ -198,11 +191,9 @@ td:active {
     
     .menu-header h1 {
         font-size: 1.1rem;
-        display: inline-block; /* Save vertical space */
     }
     
     th {
-        top: 45px; /* Needs to be much higher in landscape */
         padding: 4px;
     }
 }
