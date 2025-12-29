@@ -3,48 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mess Menu</title>
+    <title>Modern Mess Menu</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div id="menu-box">
+    <div class="app-container">
+        <header>
+            <div class="header-content">
+                <h1>Weekly Menu Plan</h1>
+                <div class="date-badge">
+                    <span id="day">Loading...</span>, <span id="date"></span>
+                </div>
+            </div>
+        </header>
 
-        <div class="menu-header">
-            <h1>Mess Menu</h1>
-        </div>
+        <main id="menu-grid">
+            
+            <div class="menu-group">
+                <div class="card breakfast">
+                    <div class="card-icon">🌅</div>
+                    <div class="card-content">
+                        <h2>Breakfast</h2>
+                        <div class="time-pill">7:30 AM - 9:30 AM</div>
+                        <p id="bfast">Loading...</p>
+                    </div>
+                </div>
 
-        <div class="table-wrapper">
-            <table id="menu-table">
-                <tr>
-                    <th>Day</th>
-                    <th>Date</th>
-                    <th>Breakfast</th>
-                    <th>Lunch</th>
-                    <th>Evening Snack</th>
-                    <th>Dinner</th>
-                </tr>
+                <div class="card lunch">
+                    <div class="card-icon">☀️</div>
+                    <div class="card-content">
+                        <h2>Lunch</h2>
+                        <div class="time-pill">12:30 PM - 2:30 PM</div>
+                        <p id="lunch">Loading...</p>
+                    </div>
+                </div>
 
-                <tr>
-                    <td id="day"></td>
-                    <td id="date"></td>
-                    <td id="bfast"></td>
-                    <td id="lunch"></td>
-                    <td id="snack"></td>
-                    <td id="dinner"></td>
-                </tr>
+                <div class="card snack">
+                    <div class="card-icon">☕</div>
+                    <div class="card-content">
+                        <h2>Snack</h2>
+                        <div class="time-pill">4:30 PM - 6:00 PM</div>
+                        <p id="snack">Loading...</p>
+                    </div>
+                </div>
 
-                <tr id="row2">
-                    <td id="day1"></td>
-                    <td id="date1"></td>
-                    <td id="bfast1"></td>
-                    <td id="lunch1"></td>
-                    <td id="snack1"></td>
-                    <td id="dinner1"></td>
-                </tr>
-            </table>
-        </div>
+                <div class="card dinner">
+                    <div class="card-icon">🌙</div>
+                    <div class="card-content">
+                        <h2>Dinner</h2>
+                        <div class="time-pill">7:30 PM - 9:30 PM</div>
+                        <p id="dinner">Loading...</p>
+                    </div>
+                </div>
+            </div>
 
+            <div id="row2" class="menu-group sunday-alt">
+                <div class="separator">
+                    <span>Sunday Option (Odd/Even)</span>
+                </div>
+                
+                <div style="display:none;">
+                    <span id="day1"></span>
+                    <span id="date1"></span>
+                </div>
+
+                <div class="card breakfast">
+                    <div class="card-icon">🌅</div>
+                    <div class="card-content">
+                        <h2>Breakfast (Alt)</h2>
+                        <p id="bfast1"></p>
+                    </div>
+                </div>
+
+                <div class="card lunch">
+                    <div class="card-icon">☀️</div>
+                    <div class="card-content">
+                        <h2>Lunch (Alt)</h2>
+                        <p id="lunch1"></p>
+                    </div>
+                </div>
+
+                <div class="card snack">
+                    <div class="card-icon">☕</div>
+                    <div class="card-content">
+                        <h2>Snack (Alt)</h2>
+                        <p id="snack1"></p>
+                    </div>
+                </div>
+
+                <div class="card dinner">
+                    <div class="card-icon">🌙</div>
+                    <div class="card-content">
+                        <h2>Dinner (Alt)</h2>
+                        <p id="dinner1"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="table-menu" style="display: none;"></div>
+
+        </main>
     </div>
 
     <script src="script.js"></script>

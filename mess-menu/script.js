@@ -30,22 +30,17 @@ async function readData(){
 }
 function showData(data){
     const now = new Date();
-    const tday = now.toDateString().slice(0,4);
+    const tday = now.toDateString().trim().slice(0,4);
     const tdate = now.toDateString().slice(4);
-    console.log(tday+ " " + tdate);
+    console.log(tday+ " => " + tdate);
 
     date.textContent = tdate;
     for(let key in data){
-        if(tday.trim().toLowerCase() == "sun".trim()){
+        console.log(key.slice(0,3).trim().toLowerCase())
+        if(tday.trim().toLowerCase() == "sun".trim() && tday.trim().toLowerCase() == key.slice(0,3).trim().toLowerCase()){
             const row2 = document.getElementById('row2');
             row2.style.visibility = "visible";
-            if(key.trim().toLowerCase() == "sunday_even".trim()){
-                day.textContent = "Sunday";
-                bfast.textContent = data[key.trim()]["Breakfast".trim()];
-                lunch.textContent = data[key.trim()]["Lunch".trim()];
-                snack.textContent = data[key.trim()]["Snack".trim()];
-                dinner.textContent = data[key.trim()]["Dinner".trim()];
-            }
+            console.log(key.trim().toLowerCase());
             if(key.trim().toLowerCase() == "sunday_odd".trim()){
                 day1.textContent = "Sunday";
                 date1.textContent = tdate;
@@ -54,9 +49,17 @@ function showData(data){
                 snack1.textContent = data[key.trim()]["Snack".trim()];
                 dinner1.textContent = data[key.trim()]["Dinner".trim()];
             }
+            if(key.trim().toLowerCase() == "sunday_even".trim()){
+                day.textContent = "Sunday";
+                bfast.textContent = data[key.trim()]["Breakfast".trim()];
+                lunch.textContent = data[key.trim()]["Lunch".trim()];
+                snack.textContent = data[key.trim()]["Snack".trim()];
+                dinner.textContent = data[key.trim()]["Dinner".trim()];
+            }
         }
-        else{
+        else if(tday.trim().toLowerCase() != "sun".trim() && tday.trim().toLowerCase() == key.slice(0,3).trim().toLowerCase()){
             day.textContent = tday;
+            console.log(key);
             bfast.textContent = data[key.trim()]["Breakfast".trim()];
             lunch.textContent = data[key.trim()]["Lunch".trim()];
             snack.textContent = data[key.trim()]["Snack".trim()];
