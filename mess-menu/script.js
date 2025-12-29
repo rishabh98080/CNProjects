@@ -36,8 +36,11 @@ function showData(data){
 
     date.textContent = tdate;
     for(let key in data){
-        console.log(key.slice(0,3).trim().toLowerCase())
+        console.log(key.slice(0,3).trim().toLowerCase());
+        
         if(tday.trim().toLowerCase() == "sun".trim() && tday.trim().toLowerCase() == key.slice(0,3).trim().toLowerCase()){
+            const overflows = document.getElementById('menu-container');
+            overflows.style.overflowY = "scroll";
             const bfst_time = document.getElementById('time-pill-bfast');
             bfst_time.textContent = "8:00 AM - 9:00 AM";
             const row2 = document.getElementById('row2');
