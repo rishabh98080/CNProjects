@@ -65,7 +65,7 @@ header h1 {
 /* --- Scrollable Content Area --- */
 #menu-container {
     flex-grow: 1; /* Takes all remaining height */
-    overflow-y: auto; /* SCROLL HAPPENS HERE */
+    overflow-y: hidden; /* SCROLL HAPPENS HERE */
     padding: 20px;
     padding-bottom: 80px; /* Extra space at bottom so cards aren't cut off */
     display: flex;
