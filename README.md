@@ -1,7 +1,7 @@
-Links : 
-Mess-Menu : https://rishabh98080.github.io/CNProjects/mess-menu/
-xoxoxo game : https://rishabh98080.github.io/CNProjects/xoxoxo/
-Todo-list  : https://rishabh98080.github.io/CNProjects/
+Links : <br>
+Mess-Menu : https://rishabh98080.github.io/CNProjects/mess-menu/ <br>
+xoxoxo game : https://rishabh98080.github.io/CNProjects/xoxoxo/ <br>
+Todo-list  : https://rishabh98080.github.io/CNProjects/ <br>
 
 Updates :<br> 
 1.Updated the add feature with localStorage api to make it remember data<br>
